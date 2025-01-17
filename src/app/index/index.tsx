@@ -1,6 +1,7 @@
 import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 import { useState } from "react"
+import { router } from "expo-router"
 
 import { styles } from "./styles"
 import { colors } from "@/styles/colors"
@@ -18,7 +19,7 @@ export default function Index () {
                 <MaterialIcons name="language" size={42} color={colors.blue[400]} />
                 <Text>Dicionário</Text>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.navigate("/add")}>
                     <MaterialIcons name="add" size={32} color={colors.blue[400]} />
                 </TouchableOpacity>
             </View>
