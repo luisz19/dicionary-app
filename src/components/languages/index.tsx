@@ -4,7 +4,12 @@ import { LanguagesList } from "@/utils/languages";
 import { Language } from "../language";
 import { styles } from "./styles";
 
-export function Languages() {
+type Props = {
+    selected: string
+    onChange: (category: string) => void
+}
+
+export function Languages({ selected, onChange }: Props) {
     return (
         <FlatList
             data={LanguagesList}
@@ -13,6 +18,8 @@ export function Languages() {
                 <Language
                     name={item.name}
                     icon={item.icon}
+                    isSelected={item.name === selected}
+                    onPress={() => onChange(item.name)}
                 />
             )}
             horizontal

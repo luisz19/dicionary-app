@@ -5,8 +5,9 @@ import { colors } from "@/styles/colors";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 50,
+        paddingTop: 40,
     },
+
 
     header: {
         flexDirection: "row",
@@ -17,8 +18,5 @@ export const styles = StyleSheet.create({
         width: "100%"
     },
 
-    logo: {
-        color: "#FFF",
-        fontSize: 24
-    }
+    
 })
