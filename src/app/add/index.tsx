@@ -6,6 +6,8 @@ import { useState } from "react"
 import { style } from "./style"
 import { colors } from "@/styles/colors"
 import { Languages } from "@/components/languages"
+import { Input } from "@/components/inputs"
+import { Button } from "@/components/button"
 
 
 export default function Add () {
@@ -24,6 +26,14 @@ export default function Add () {
                 selected={language}
                 onChange={setLanguage}
             />
+
+            <View style={style.inputs}>
+                <Input placeholder="Digite a palavra" />
+                <MaterialIcons name='translate' size={24} color={colors.gray[300]} />
+                <Input placeholder="Digite a tradução"/>
+                <Button title="Adicionar" />
+            </View>
+            
 
             
         </View>
