@@ -7,19 +7,19 @@ import { MaterialIcons } from "@expo/vector-icons";
 type WordsProps = TouchableOpacityProps &{
     word: string;
     translation: string;
-    onDetails?: () => void;
+    onDetails: () => void;
 }
 
-export function Words() {
+export function Words({word, translation, onDetails }: WordsProps) {
     return (
         <View style={styles.container}>
             <View style={styles.details}>
-                <Text style={styles.word} numberOfLines={1}>Palavra</Text>
+                <Text style={styles.word} numberOfLines={1}>{word}</Text>
                 <MaterialIcons name="translate" size={24} color={colors.gray[200]} />
-                <Text style={styles.word} numberOfLines={1}>Tradução</Text>
+                <Text style={styles.word} numberOfLines={1}>{translation}</Text>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onDetails}>
                 <MaterialIcons name="more-horiz" size={24} color={colors.gray[200]} />
             </TouchableOpacity>
 

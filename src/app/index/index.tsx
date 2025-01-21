@@ -72,10 +72,10 @@ export default function Index () {
                     
                 </Modal>
 
-                <Words />
-                <Words />
-                <Words />
-                <Words />        
+                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
+                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
+                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
+                     
 
         </View>
     )
