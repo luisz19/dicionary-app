@@ -1,8 +1,14 @@
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 import { colors } from "@/styles/colors";
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
+
+type WordsProps = TouchableOpacityProps &{
+    word: string;
+    translation: string;
+    onDetails?: () => void;
+}
 
 export function Words() {
     return (
