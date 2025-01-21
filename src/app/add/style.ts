@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
     header: {
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingHorizontal: 34,
+        paddingHorizontal: 30,
         paddingTop: 40,
         alignItems: "center",
         marginBottom: 20,
@@ -18,7 +18,7 @@ export const style = StyleSheet.create({
     },
     title: {
         color: colors.gray[300],
-        fontSize: 20
+        fontSize: 18
     },
     inputs: {
         justifyContent: "space-between",

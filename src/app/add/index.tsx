@@ -31,6 +31,7 @@ export default function Add () {
                 <Input placeholder="Digite a palavra" />
                 <MaterialIcons name='translate' size={24} color={colors.gray[300]} />
                 <Input placeholder="Digite a tradução"/>
+                <Input placeholder="Exemplo"/>
                 <Button title="Adicionar" />
             </View>
             

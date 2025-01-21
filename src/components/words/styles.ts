@@ -7,14 +7,14 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 16,
-        marginHorizontal: 20,
+        marginHorizontal: 16,
         padding: 15,
         borderWidth: 2,
         borderColor: colors.gray[500],
         borderRadius: 10,
     },
     word: {
-        fontSize: 20,
+        fontSize: 15,
         color: colors.gray[200]
     },
     details: {
