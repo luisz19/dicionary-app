@@ -7,6 +7,7 @@ import { styles } from "./styles"
 import { colors } from "@/styles/colors"
 import { Languages } from "@/components/languages"
 import { LanguagesList } from "@/utils/languages"
+import { Words } from "@/components/words"
 
 
 export default function Index () {
@@ -28,7 +29,11 @@ export default function Index () {
                     selected={language}
                     onChange={setLanguage}
                 />
-        
+
+                <Words />
+                <Words />
+                <Words />
+                <Words />        
 
         </View>
     )
