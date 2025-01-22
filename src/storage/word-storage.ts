@@ -13,6 +13,7 @@ export type WordStorage = {
 async function get(): Promise<WordStorage[]> {
     const storage = await AsyncStorage.getItem(WORDS_STORAGE_KEY)
     const response = storage ? JSON.parse(storage) : []
+    console.log(response)
 
     return response
 }

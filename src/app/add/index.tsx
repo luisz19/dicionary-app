@@ -32,7 +32,7 @@ export default function Add () {
             }
      
             await WordStorage.save({
-                id: new Date().getTime.toString(),
+                id: new Date().getTime().toString(),
                 word,
                 translate,
                 example,
@@ -53,12 +53,6 @@ export default function Add () {
 
         
     }
-
-    useEffect(() => {
-        console.log(WordStorage.get())
-    })
-
-
 
     return (
         <View style={style.container}>
