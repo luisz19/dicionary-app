@@ -14,7 +14,7 @@ import { Option } from "@/components/option"
 export default function Index () {
 
     const [language, setLanguage] = useState(LanguagesList[0].name)
-    const [showModal, setShowModal] = useState(true)
+    const [showModal, setShowModal] = useState(false)
 
     const handleDetails = () => {
         setShowModal(true)
