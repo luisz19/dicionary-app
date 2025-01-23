@@ -1,7 +1,7 @@
-import { View, TouchableOpacity, Text, Modal } from "react-native"
+import { View, TouchableOpacity, Text, Modal, Alert, FlatList } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
-import { useState } from "react"
-import { router } from "expo-router"
+import { useCallback, useState } from "react"
+import { router, useFocusEffect } from "expo-router"
 
 import { styles } from "./styles"
 import { colors } from "@/styles/colors"
@@ -9,16 +9,44 @@ import { Languages } from "@/components/languages"
 import { LanguagesList } from "@/utils/languages"
 import { Words } from "@/components/words"
 import { Option } from "@/components/option"
+import { WordStorage } from "@/storage/word-storage"
 
 
 export default function Index () {
 
     const [language, setLanguage] = useState(LanguagesList[0].name)
     const [showModal, setShowModal] = useState(false)
+    const [word, setWord] = useState<WordStorage>({} as WordStorage)
+    const [words, setWords] = useState<WordStorage[]>([])
 
-    const handleDetails = () => {
-        setShowModal(true)
+    async function getWords() {
+        try {
+            const response = await WordStorage.get()
+
+            const filtered = response.filter((word) => word.language === language)
+
+            setWords(filtered)
+
+        } catch (error) {
+            Alert.alert("Erro", "Erro ao listar as palavras")
+            console.log(error)
+        }
     }
+
+    const handleDetails = (selected: WordStorage) => {
+        setShowModal(true)
+        setWord(selected)
+    }
+
+
+    useFocusEffect(
+        useCallback(() => {
+            getWords()
+        
+        }, [language])
+    )
+    
+
 
     return (
         <View style={styles.container}>
@@ -34,6 +62,20 @@ export default function Index () {
                 <Languages
                     selected={language}
                     onChange={setLanguage}
+                />
+
+                <FlatList 
+                    data={words}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item}) => 
+                        <Words 
+                            word={item.word}
+                            translation={item.translate}
+                            onDetails={() => handleDetails(item)}
+                        />
+                    
+                    }    
+                    
                 />
 
                 <Modal  animationType="slide" transparent visible={showModal}>
@@ -72,9 +114,7 @@ export default function Index () {
                     
                 </Modal>
 
-                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
-                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
-                <Words word="Palavra" translation="Tradução" onDetails={handleDetails}/>
+
                      
 
         </View>
