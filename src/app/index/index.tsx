@@ -82,7 +82,7 @@ export default function Index () {
                     <View style={styles.modal}>
                         <View style={styles.modalContent}>
                             <View style={styles.modalHeader}>
-                                <Text style={styles.modalLanguage}>Inglês</Text>
+                                <Text style={styles.modalLanguage}>{word.language}</Text>
 
                                 <TouchableOpacity onPress={() => setShowModal(false)}>
                                     <MaterialIcons
@@ -94,13 +94,13 @@ export default function Index () {
                             </View>
                             
                             <View style={styles.modalTranslate}>
-                                <Text style={styles.modalWord}>Palavra</Text>
+                                <Text style={styles.modalWord}>{word.word}</Text>
                                 <MaterialIcons name="translate" size={24} color={colors.gray[200]} />
-                                <Text style={styles.modalWord}>Tradução</Text>
+                                <Text style={styles.modalWord}>{word.translate}</Text>
                             </View>
 
                             <Text style={styles.modalExemple}>
-                                Exemplo: "Hello" é traduzido para "Olá" Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolorum dignissimos ut adipisci veritatis inventore exercitationem illo reprehenderit possimus cupiditate! Et maxime quo iure, qui dolor quibusdam? Sit, molestiae optio.
+                                {word.example}
                             </Text>
 
                             <View style={styles.modalFooter}>
