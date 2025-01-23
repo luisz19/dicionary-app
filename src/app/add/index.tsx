@@ -72,7 +72,13 @@ export default function Add () {
                     placeholder="Digite a palavra"
                     onChangeText={setWord}    
                 />
-                <MaterialIcons name='translate' size={24} color={colors.gray[300]} />
+
+                <View style={{flexDirection: "row", gap: 20}}>
+                    <MaterialIcons name="arrow-upward" size={24} color={colors.gray[200]} />
+                    <MaterialIcons name='translate' size={24} color={colors.gray[300]} />
+                    <MaterialIcons name="arrow-downward" size={24} color={colors.gray[200]} />
+                </View>
+
                 <Input 
                     placeholder="Digite a tradução"
                     onChangeText={setTranslate}    

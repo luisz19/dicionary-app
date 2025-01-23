@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     },
     modalLanguage: {
         color: colors.gray[300],
-        fontSize: 16,
+        fontSize: 14,
     },
     modalTranslate: {
         flexDirection: "row",
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     },
     modalWord: {
         color: colors.gray[100],
-        fontSize: 18,
+        fontSize: 16,
         padding: 8,
         paddingHorizontal: 12,
     },

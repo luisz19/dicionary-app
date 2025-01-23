@@ -52,7 +52,6 @@ export default function Index () {
         <View style={styles.container}>
             <View style={styles.header}>
                 <MaterialIcons name="language" size={42} color={colors.blue[400]} />
-                <Text>Dicionário</Text>
 
                 <TouchableOpacity onPress={() => router.navigate("/add")}>
                     <MaterialIcons name="add" size={32} color={colors.blue[400]} />
@@ -94,7 +93,7 @@ export default function Index () {
                             </View>
                             
                             <View style={styles.modalTranslate}>
-                                <Text style={styles.modalWord}>{word.word}</Text>
+                                <Text style={styles.modalWord}>{word.word}{}</Text>
                                 <MaterialIcons name="translate" size={24} color={colors.gray[200]} />
                                 <Text style={styles.modalWord}>{word.translate}</Text>
                             </View>
@@ -105,7 +104,7 @@ export default function Index () {
 
                             <View style={styles.modalFooter}>
                                <Option name="Deletar" icon="delete" variant="secondary" />
-                               <Option name="Editar" icon="language"   />
+                               <Option name="Editar" icon="edit"   />
 
                             </View>
                             

@@ -15,7 +15,7 @@ export function Words({word, translation, onDetails }: WordsProps) {
         <View style={styles.container}>
             <View style={styles.details}>
                 <Text style={styles.word} numberOfLines={1}>{word}</Text>
-                <MaterialIcons name="translate" size={24} color={colors.gray[200]} />
+                <MaterialIcons name="translate" size={24} color={colors.blue[300]} />
                 <Text style={styles.word} numberOfLines={1}>{translation}</Text>
             </View>
 
