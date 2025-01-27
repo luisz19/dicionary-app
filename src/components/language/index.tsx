@@ -1,9 +1,6 @@
 import { Pressable, Text, View, PressableProps } from "react-native"
-import { useState } from "react"
 import { styles } from "./styles"
 import { colors } from "@/styles/colors"
-
-import { LanguagesList } from "@/utils/languages"
 
 import CountryFlag from "react-native-country-flag"
 
@@ -15,7 +12,7 @@ type LanguageProps = PressableProps & {
 
 export function Language ({ name, icon, isSelected, ...rest }: LanguageProps) {
 
-    const color = isSelected ? colors.blue[400] : colors.gray[200]
+    const color = isSelected ? colors.blue[400] : colors.gray[300]
 
     return (
         <Pressable style={styles.container} {...rest}>

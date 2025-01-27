@@ -6,11 +6,12 @@ export const styles = StyleSheet.create({
     container: {
         padding: 10,
         alignItems: "center",
+        justifyContent: "center"
     },
     text: {
-        color: colors.gray[100],
+        color: colors.gray[600],
         fontSize: 16,
-        fontWeight: "400",
+        fontWeight: "500",
 
     },
     emoji: {

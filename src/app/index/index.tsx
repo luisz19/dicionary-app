@@ -16,7 +16,7 @@ export default function Index () {
 
     const [language, setLanguage] = useState(LanguagesList[0].name)
     const [showModal, setShowModal] = useState(false)
-    const [word, setWord] = useState<WordStorage>({} as WordStorage)
+    const [word, setWord] = useState<WordStorage>({} as WordStorage) //alem de armazenar como variavel, armazena com as propriedades do type
     const [words, setWords] = useState<WordStorage[]>([])
 
     async function getWords() {
@@ -31,6 +31,26 @@ export default function Index () {
             Alert.alert("Erro", "Erro ao listar as palavras")
             console.log(error)
         }
+    }
+
+    async function deleteWords() {
+        try {
+            await WordStorage.remove(word.id)
+            getWords()
+            setShowModal(false)
+
+        } catch(error) {
+            Alert.alert("Erro", "Não foi possível deletar a palavra")
+            console.log(error)
+        }
+    }
+
+    const handleRemove = () => {
+        Alert.alert("Excluir", "Deseja realmente excluir?", [
+            { style: "cancel", text: "Não" },
+            { text : "Sim", onPress: deleteWords }
+        ])
+
     }
 
     const handleDetails = (selected: WordStorage) => {
@@ -103,7 +123,7 @@ export default function Index () {
                             </Text>
 
                             <View style={styles.modalFooter}>
-                               <Option name="Deletar" icon="delete" variant="secondary" />
+                               <Option name="Deletar" icon="delete" variant="secondary" onPress={handleRemove}/>
                                <Option name="Editar" icon="edit"   />
 
                             </View>
