@@ -8,6 +8,7 @@ export type WordStorage = {
     translate: string
     example: string
     language: string
+    date: string
 }
 
 async function get(): Promise<WordStorage[]> {

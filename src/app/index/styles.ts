@@ -55,10 +55,14 @@ export const styles = StyleSheet.create({
         color: colors.gray[300],
         fontSize: 14,
         marginTop: 20,
+    },
+    modalDate: {
+        color: colors.gray[400],
+        fontSize: 14,
         marginBottom: 20,
         borderBottomColor: colors.gray[600],
         borderBottomWidth: 2,
-        paddingBottom: 20,
+        paddingBottom: 10,
     },
     modalFooter: {
         flexDirection: "row",

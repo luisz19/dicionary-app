@@ -66,7 +66,6 @@ export default function Index () {
         setShowModal(true)
         setWord(selected)
         setId(selected.id)
-        console.log(selected.id)
     }
 
 
@@ -133,6 +132,8 @@ export default function Index () {
                             <Text style={styles.modalExemple}>
                                 {word.example}
                             </Text>
+
+                            <Text style={styles.modalDate}>{word.date}</Text>
 
                             <View style={styles.modalFooter}>
                                <Option name="Deletar" icon="delete" variant="secondary" onPress={handleRemove}/>

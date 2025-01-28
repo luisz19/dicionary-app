@@ -1,7 +1,8 @@
 import { View, Text, TouchableOpacity, Alert } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 import { router } from "expo-router"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+
 
 import { style } from "./style"
 import { colors } from "@/styles/colors"
@@ -41,7 +42,13 @@ export default function Add () {
                 word,
                 translate,
                 example,
-                language
+                language,
+                date: 
+                    new Date().toLocaleDateString("pt-BR", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                    })
             })
 
            
@@ -85,7 +92,13 @@ export default function Add () {
                 word,
                 translate,
                 example,
-                language
+                language,
+                date: 
+                    new Date().toLocaleDateString("pt-BR", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                    })
             })
 
             Alert.alert(
