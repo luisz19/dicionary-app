@@ -10,7 +10,7 @@ import { Languages } from "@/components/languages"
 import { Input } from "@/components/inputs"
 import { Button } from "@/components/button"
 import { WordStorage } from "@/storage/word-storage"
-
+import { useSearchParams } from "expo-router/build/hooks"
 
 export default function Add () {
 
@@ -18,6 +18,10 @@ export default function Add () {
     const [word, setWord] = useState("")
     const [translate, setTranslate] = useState("")
     const [example, setExample] = useState("")
+    const searchParams = useSearchParams()
+
+    const isUpdate = searchParams.get("isUpdate") === "true";
+    
 
     async function handleAdd() {
         try{
@@ -39,17 +43,20 @@ export default function Add () {
                 language
             })
 
-            Alert.alert("Sucesso", "Nova palavra adicionada", [
-                {
-                    text: "Ok",
-                    onPress: () => router.back()    
-                }
+            Alert.alert(
+                "Sucesso",
+                isUpdate ? "Nova palavra adicionada" : "Palavra atualizada",
+                [
+                    {
+                        text: "Ok",
+                        onPress: () => router.back()    
+                    }
                 
-            ])
-        } catch (error) {
-            console.log(error)
-            Alert.alert("Erro", "Não foi possível salvar")
-        }
+                ])
+            } catch (error) {
+                console.log(error)
+                Alert.alert("Erro", "Não foi possível salvar")
+            }
 
         
     }
@@ -60,7 +67,7 @@ export default function Add () {
                 <TouchableOpacity onPress={() => router.back()}>
                     <MaterialIcons name="arrow-back" size={24} color={colors.gray[300]} />
                 </TouchableOpacity>
-                <Text style={style.title}>Nova palavra</Text>
+                <Text style={style.title}>{isUpdate ? "Atualizar palavra" : "Nova Palavra"}</Text>
             </View>
             <Languages 
                 selected={language}

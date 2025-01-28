@@ -53,6 +53,11 @@ export default function Index () {
 
     }
 
+    const handleUpdate = () => {
+        
+
+    }
+
     const handleDetails = (selected: WordStorage) => {
         setShowModal(true)
         setWord(selected)
@@ -124,7 +129,7 @@ export default function Index () {
 
                             <View style={styles.modalFooter}>
                                <Option name="Deletar" icon="delete" variant="secondary" onPress={handleRemove}/>
-                               <Option name="Editar" icon="edit"   />
+                               <Option name="Editar" icon="edit" onPress={() => router.navigate({pathname: '/add', params: {isUpdate: "true"}})} />
 
                             </View>
                             
