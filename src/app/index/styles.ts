@@ -20,10 +20,9 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.gray[500],
         color: colors.gray[100],
-        padding: 12,
+        padding: 8,
         marginHorizontal: 15,
-        maxWidth: 400,
-        minWidth: 400,
+        width: '60%',
         borderRadius: 10,
     },
     modal: {
