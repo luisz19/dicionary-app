@@ -15,6 +15,17 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         width: "100%"
     },
+    input: {
+        gap: 10,
+        borderWidth: 1,
+        borderColor: colors.gray[500],
+        color: colors.gray[100],
+        padding: 12,
+        marginHorizontal: 15,
+        maxWidth: 400,
+        minWidth: 400,
+        borderRadius: 10,
+    },
     modal: {
         flex: 1,
         justifyContent: "flex-end",

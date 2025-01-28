@@ -16,6 +16,11 @@ export const style = StyleSheet.create({
         width: "100%"
 
     },
+    chooseLanguage: {
+        color: colors.gray[400],
+        marginHorizontal: 15,
+        fontSize: 15
+    },
     title: {
         color: colors.gray[300],
         fontSize: 18

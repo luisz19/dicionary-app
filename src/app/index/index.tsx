@@ -10,6 +10,7 @@ import { LanguagesList } from "@/utils/languages"
 import { Words } from "@/components/words"
 import { Option } from "@/components/option"
 import { WordStorage } from "@/storage/word-storage"
+import { Input } from "@/components/inputs"
 
 
 export default function Index () {
@@ -83,7 +84,7 @@ export default function Index () {
         <View style={styles.container}>
             <View style={styles.header}>
                 <MaterialIcons name="language" size={42} color={colors.blue[400]} />
-
+                <Input placeholder="Pesquisar" style={styles.input}/>
                 <TouchableOpacity onPress={() => router.navigate("/add")}>
                     <MaterialIcons name="add" size={32} color={colors.blue[400]} />
                 </TouchableOpacity>

@@ -127,6 +127,7 @@ export default function Add () {
                 </TouchableOpacity>
                 <Text style={style.title}>{isUpdate ?  "Atualizar palavra" : "Nova Palavra"}</Text>
             </View>
+            <Text style={style.chooseLanguage}>Selecione uma língua:</Text>
             <Languages 
                 selected={language}
                 onChange={setLanguage}
