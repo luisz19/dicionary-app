@@ -28,6 +28,18 @@ async function save(newWord: WordStorage) {
     }
 }
 
+async function update(updateWord: WordStorage) {
+    try {
+        const storage = await get()
+        const updatedStorage = storage.map((word: WordStorage) =>
+            word.id === updateWord.id ? updateWord : word
+        )
+        await AsyncStorage.setItem(WORDS_STORAGE_KEY, JSON.stringify(updatedStorage))
+    } catch (error) {
+        throw error
+    }
+}
+
 async function remove(id: string) {
     try {
         const storage = await get()
@@ -40,4 +52,4 @@ async function remove(id: string) {
     
 }
 
-export const WordStorage = { get, save, remove }
+export const WordStorage = { get, save, remove, update }

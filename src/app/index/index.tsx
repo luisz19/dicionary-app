@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text, Modal, Alert, FlatList } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { router, useFocusEffect } from "expo-router"
 
 import { styles } from "./styles"
@@ -17,6 +17,7 @@ export default function Index () {
     const [language, setLanguage] = useState(LanguagesList[0].name)
     const [showModal, setShowModal] = useState(false)
     const [word, setWord] = useState<WordStorage>({} as WordStorage) //alem de armazenar como variavel, armazena com as propriedades do type
+    const [id, setId] = useState('')
     const [words, setWords] = useState<WordStorage[]>([])
 
     async function getWords() {
@@ -54,19 +55,25 @@ export default function Index () {
     }
 
     const handleUpdate = () => {
-        
-
+        router.navigate({pathname: "/add",
+            params: {
+              isUpdate: "true",
+              id: id,
+            }})
     }
 
     const handleDetails = (selected: WordStorage) => {
         setShowModal(true)
         setWord(selected)
+        setId(selected.id)
+        console.log(selected.id)
     }
 
 
     useFocusEffect(
         useCallback(() => {
             getWords()
+            setShowModal(false)
         
         }, [language])
     )
@@ -129,7 +136,7 @@ export default function Index () {
 
                             <View style={styles.modalFooter}>
                                <Option name="Deletar" icon="delete" variant="secondary" onPress={handleRemove}/>
-                               <Option name="Editar" icon="edit" onPress={() => router.navigate({pathname: '/add', params: {isUpdate: "true"}})} />
+                               <Option name="Editar" icon="edit" onPress={handleUpdate} />
 
                             </View>
                             

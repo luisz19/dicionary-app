@@ -21,6 +21,7 @@ export default function Add () {
     const searchParams = useSearchParams()
 
     const isUpdate = searchParams.get("isUpdate") === "true";
+    const id = searchParams.get("id")
     
 
     async function handleAdd() {
@@ -43,9 +44,10 @@ export default function Add () {
                 language
             })
 
+           
+
             Alert.alert(
-                "Sucesso",
-                isUpdate ? "Nova palavra adicionada" : "Palavra atualizada",
+                "Sucesso", "Nova palavra adicionada",
                 [
                     {
                         text: "Ok",
@@ -61,13 +63,56 @@ export default function Add () {
         
     }
 
+    async function handleUpdate() {
+        try {
+
+            if(!word.trim()) {
+                return Alert.alert("Palavra", "Digite uma palavra") 
+             }
+            if(!language) {
+                return Alert.alert("Língua", "Escolha uma língua") 
+            }
+            if(!translate.trim()) {
+                return Alert.alert("Tradução", "Digite a tradução") 
+            }
+
+            if (!id) {
+                return Alert.alert("Erro", "ID inválido para atualização.");
+            }
+
+            await WordStorage.update({
+                id: id,
+                word,
+                translate,
+                example,
+                language
+            })
+
+            Alert.alert(
+                "Sucesso", "Palavra atualizada",
+                [
+                    {
+                        text: "Ok",
+                        onPress: () => router.back()    
+                    }
+                
+            ])
+
+            
+        } catch(error) {
+            throw error
+        }
+    }
+
+    
+
     return (
         <View style={style.container}>
             <View style={style.header}>
                 <TouchableOpacity onPress={() => router.back()}>
                     <MaterialIcons name="arrow-back" size={24} color={colors.gray[300]} />
                 </TouchableOpacity>
-                <Text style={style.title}>{isUpdate ? "Atualizar palavra" : "Nova Palavra"}</Text>
+                <Text style={style.title}>{isUpdate ?  "Atualizar palavra" : "Nova Palavra"}</Text>
             </View>
             <Languages 
                 selected={language}
@@ -94,7 +139,7 @@ export default function Add () {
                     placeholder="Exemplo"
                     onChangeText={setExample}
                 />
-                <Button title="Adicionar" onPress={handleAdd} />
+                <Button title="Adicionar" onPress={ isUpdate?  handleUpdate : handleAdd } />
             </View>
             
 
