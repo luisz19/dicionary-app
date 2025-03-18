@@ -1,4 +1,4 @@
-# Dicionario de Novas Palavras
+# Dicionário de Novas Palavras
 
 Aplicativo mobile para auxiliar no aprendizado de idiomas, permitindo o armazenamento de palavras e traduções. Desenvolvido com React Native e Expo.
 
